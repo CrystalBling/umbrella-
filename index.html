@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Umbrella Cast - Live Weather & Rain Advisor</title>
+    <script>
+      // Intercept and suppress cross-origin / third-party widget errors early
+      window.onerror = function(msg, url, line, col, err) {
+        if (msg === 'Script error.' || !url || (typeof url === 'string' && !url.includes(window.location.host))) {
+          return true; // Suppress third-party cross-origin script error alerts
+        }
+        return false;
+      };
+      window.addEventListener('error', function(event) {
+        if (event.message === 'Script error.' || !event.filename || (typeof event.filename === 'string' && !event.filename.includes(window.location.host))) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          return true;
+        }
+      }, true);
+      window.addEventListener('unhandledrejection', function(event) {
+        if (event && event.reason && (event.reason.message === 'Script error.' || String(event.reason).includes('Script error'))) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, true);
+    </script>
+    <script type="text/javascript">
+      try {
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y8vbymp0bz");
+      } catch (e) {}
+    </script>
+    <meta name="description" content="Real-time weather forecast and intelligent umbrella recommendations based on live precipitation data." />
+    <meta property="og:title" content="Umbrella Cast" />
+    <meta property="og:description" content="Should you bring an umbrella today? Get instant real-time advice." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#05070A] text-white antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

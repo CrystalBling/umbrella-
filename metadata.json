@@ -1,0 +1,10 @@
+{
+  "name": "Remix 27aug Umbrella?",
+  "description": "Real-time weather forecast and intelligent umbrella recommendations based on live precipitation data.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
